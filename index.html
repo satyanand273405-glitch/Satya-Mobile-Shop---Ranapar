@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satya Mobile Shop Ranapar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header/Navigation */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1464380573004-8ca85a08751a?w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero button {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .hero button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Offers Section */
+        .offers {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .offer-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .offer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Products Section */
+        .products {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            background: white;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+
+        .rating {
+            color: #ffd700;
+            margin: 10px 0;
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .buy-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="nav">
+            <div class="logo">Mobile<span>World</span></div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Phones</a>
+                <a href="#">Offers</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Best  Mobile Shop - ranapar</h1>
+        <p>Best Mobile Repair | Screen replacement | Battery Change | New Mobile | etc</p>
+        <button onclick="window.location.href='#products'">By Now →</button>
+    </div>
+
+    <!-- Offers Section -->
+    <div class="offers">
+        <h2 class="section-title">Best Offers</h2>
+        <div class="offer-grid">
+            <div class="offer-card">
+                <i>🏷️</i>
+                <h3>20% discount</h3>
+                <p>चुनिंदा मोबाइल पर</p>
+            </div>
+            <div class="offer-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <i>📱</i>
+                <h3>नए एराइवल्स</h3>
+                <p>नवीनतम मॉडल देखें</p>
+            </div>
+            <div class="offer-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <i>🔄</i>
+                <h3>एक्सचेंज ऑफर</h3>
+                <p>पुराना फोन बदलें</p>
+            </div>
+            <div class="offer-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <i>💳</i>
+                <h3>नो कॉस्ट ईएमआई</h3>
+                <p>सभी कार्ड पर</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products" id="products">
+        <h2 class="section-title">बेस्टसेलर मोबाइल</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>Samsung Galaxy S23 Ultra</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐ (128)</div>
+                    <div>
+                        <span class="price">₹89,999</span>
+                        <span class="old-price">₹1,24,999</span>
+                    </div>
+                    <p style="color: green; margin: 10px 0;">✔️ स्टॉक में है</p>
+                    <button class="buy-btn" onclick="showMessage()">अभी खरीदें</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>iPhone 15 Pro Max</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐ (256)</div>
+                    <div>
+                        <span class="price">₹1,19,999</span>
+                        <span class="old-price">₹1,59,999</span>
+                    </div>
+                    <p style="color: green; margin: 10px 0;">✔️ स्टॉक में है</p>
+                    <button class="buy-btn" onclick="showMessage()">अभी खरीदें</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>OnePlus 11 5G</h3>
+                    <div class="rating">⭐⭐⭐⭐ (89)</div>
+                    <div>
+                        <span class="price">₹49,999</span>
+                        <span class="old-price">₹69,999</span>
+                    </div>
+                    <p style="color: green; margin: 10px 0;">✔️ स्टॉक में है</p>
+                    <button class="buy-btn" onclick="showMessage()">अभी खरीदें</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>Redmi Note 12 Pro</h3>
+                    <div class="rating">⭐⭐⭐⭐ (156)</div>
+                    <div>
+                        <span class="price">₹22,999</span>
+                        <span class="old-price">₹29,999</span>
+                    </div>
+                    <p style="color: green; margin: 10px 0;">✔️ स्टॉक में है</p>
+                    <button class="buy-btn" onclick="showMessage()">अभी खरीदें</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="feature-grid">
+            <!-- <div class="feature-item">
+                <i>🚚</i>
+                <h3>फ्री डिलीवरी</h3>
+                <p>पूरे भारत में</p>
+            </div> -->
+            <div class="feature-item">
+                <i>🔒</i>
+                <h3>सिक्योर पेमेंट</h3>
+                <p>100% सुरक्षित</p>
+            </div>
+            <div class="feature-item">
+                <i>🛠️</i>
+                <h3>1 साल वारंटी</h3>
+                <p>ओरिजिनल प्रोडक्ट</p>
+            </div>
+            <div class="feature-item">
+                <i>💬</i>
+                <h3>24/7 सपोर्ट</h3>
+                <p>कभी भी संपर्क करें</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+        <h2 class="section-title">संपर्क करें</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <i>📍</i>
+                <h3>हमारा पता</h3>
+                <p>Ranapar , near gobdaur, near barahi <br>Ranapar 273405</p>
+            </div>
+            <div class="contact-card">
+                <i>📞</i>
+                <h3>Mobile Number</h3>
+                <p>+91 7753871044<br>+91 7753871044</p>
+                <a href="https://wa.me/919876543210" class="whatsapp-btn">WhatsApp करें</a>
+            </div>
+            <div class="contact-card">
+                <i>⏰</i>
+                <h3>समय</h3>
+                <p>सोम-शनि: सुबह 10 से रात 8<br>रविवार: बंद</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 Mobile World. सभी अधिकार सुरक्षित।</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Website Design: Mobile World</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showMessage() {
+            alert("ऑर्डर करने के लिए कृपया हमें कॉल करें: +91 98765 43210\nया WhatsApp करें: +91 98765 43210");
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
